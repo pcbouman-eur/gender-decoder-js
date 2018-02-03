@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bootstrap.min.css" />
+<link rel="stylesheet" href="bootstrap-theme.min.css" />
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="wordlist.js"></script>
+<script src="decoder.js"></script>
+<script src="app.js"></script>
+<style> .tab-padded { padding-top: 1em; } body { padding-top: 1.5em;} </style>
+</head>
+<body onload="init()">
+
+<div class="container">
+<div class="row">
+<div class="col-lg-3"></div>
+<div class="col-lg-6 well">
+<h2>Gender Decoder for Job Ads</h2>
+<p>
+This is a JavaScript implementation of the <a href="http://gender-decoder.katmatfield.com/" target="_blank">Gender Decoder for Job Ads</a> originally built by Kat Matfield. The website of the original version contains <a href="http://gender-decoder.katmatfield.com/about" target="_blank">more information</a> about the original motivation to build it. It closely follows the Python Library version that was built <a href="https://github.com/Doteveryone/genderdecoder" target="_blank">by Richard Pope</a>. The tool counts how often certain words occur in a text and makes a verdict based on the observed frequencies.</p>
+<p>
+Because this implementation is in JavaScript, it can run the analysis locally within the browser of the user without the need of sending analyzed texts over the internet. </p>
+<p>
+An additional feature of this version is that you can edit the word lists, in case you do not agree with the original lists, or want to perform this analysis in a different language than English.
+</p>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-3"></div>
+<div class="col-lg-6">
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#1" data-toggle="tab">Analyze Job Advertisment</a></li>
+  <li role="presentation"><a href="#2" data-toggle="tab">Masculine Words</a></li>
+  <li role="presentation"><a href="#3" data-toggle="tab">Feminine Words</a></li>
+</ul>
+<div class="tab-content">
+   <div class="tab-pane active tab-padded" id="1">
+<div class="input-group">
+<textarea id="ad_text" class="form-control" rows="10" cols="80" placeholder="Paste a job advertisement here"></textarea>
+<br />
+<button class="form-control btn btn-primary" type="button" onclick="analyze()">Analyze</button>
+</div>
+<br />
+<div id="result"></div>
+</div>
+   <div class="tab-pane tab-padded" id="2">
+<div class="well">Enter one word per line. Words in the text that start with at least one of words in this list are considered masculine. For example, if this list contains 'ambitio', both 'ambitious' and 'ambition' will be considered masculine.<br />
+Changes in these lists are saved in the local storage of your webbrowser and persist if you close the browser. However, it is advised to keep a seperate backup of the lists if you do intensive editing.</div>
+<div class="input-group">
+<textarea id="masculine_text" class="form-control" onchange='storeLists()' class="form-control" rows="10" cols="80"></textarea>
+<br />
+<button class="form-control btn btn-danger" type="button" onclick="clickReset()">Reset to Default List</button>
+</div>
+</div>
+   <div class="tab-pane tab-padded" id="3">
+<div class="well">Enter one word per line. Words in the text that start with at least one of words in this list are considered feminine. For example, if this list contains 'collab', both 'collaboration' and 'collaborative' will be considered feminine.
+<br />
+Changes in these lists are saved in the local storage of your webbrowser and persist if you close the browser. However, it is advised to keep a seperate backup of the lists if you do intensive editing.
+</div>
+<div class="input-group">
+<textarea id="feminine_text" onchange='storeLists()' class="form-control" rows="10" cols="80"></textarea>
+<br />
+<button class="form-control btn btn-danger" type="button" onclick="clickReset()">Reset to Default List</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
