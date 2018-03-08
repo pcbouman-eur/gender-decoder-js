@@ -21,14 +21,39 @@ function init() {
    }
    else
    {
-      reset();
+      var lang = getDefaultLanguage();
+      var url = new URL(window.location);
+      if (url.searchParams.has('lang'))
+      {
+         lang = url.searchParams.get('lang');
+      }
+      reset(lang);
+   }
+
+   injectLanguages('language-list1');
+   injectLanguages('language-list2');
+}
+
+function injectLanguages(elemID)
+{
+   var lst = document.getElementById(elemID);
+   for (var language in getWordLists())
+   {
+      var textnode = document.createTextNode("Load default "+language+" word list");
+      var anchor = document.createElement("a");
+      anchor.href = "#";
+      anchor.appendChild(textnode);
+      var elem = document.createElement("li");
+      elem.onclick = function() { clickReset(language); };
+      elem.appendChild(anchor);
+      lst.appendChild(elem);
    }
 }
 
-function clickReset() {
+function clickReset(lang) {
    if (confirm('This will reset both the masculine and the feminine wordlist, removing everything that is currently there. Are you sure you want to continue?'))
    {
-      reset();
+      reset(lang);
    }
 }
 
@@ -42,8 +67,16 @@ function storeLists() {
 }
 
 // Resets the word lists to the default ones
-function reset() {
+function reset(lang) {
    var lists = getWordLists();
+   if (lang in lists)
+   {
+      lists = lists[lang];
+   }
+   else
+   {
+      lists = lists[getDefaultLanguage()];
+   }
    var fem_val = lists['feminine_words'].join('\n');
    var mas_val = lists['masculine_words'].join('\n');
    var fem_div = document.getElementById('feminine_text');

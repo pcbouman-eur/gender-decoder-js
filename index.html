@@ -86,10 +86,10 @@ body {
 						<div class="input-group">
 							<textarea id="masculine_text" class="form-control"
 								onchange='storeLists()' class="form-control" rows="10" cols="80"></textarea>
-							<br />
-							<button class="form-control btn btn-danger" type="button"
-								onclick="clickReset()">Reset to Default List</button>
+                       			                <button class="btn btn-danger dropdown-toggle form-control" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reset to Default List <span class="caret"></span></button>
+                                                        <ul class="dropdown-menu" id="language-list1"></ul>
 						</div>
+                                                <br />
 					</div>
 					<div class="tab-pane tab-padded" id="3">
 						<div class="well">
@@ -104,14 +104,19 @@ body {
 						<div class="input-group">
 							<textarea id="feminine_text" onchange='storeLists()'
 								class="form-control" rows="10" cols="80"></textarea>
-							<br />
-							<button class="form-control btn btn-danger" type="button"
-								onclick="clickReset()">Reset to Default List</button>
-						</div>
+                       			                <button class="btn btn-danger dropdown-toggle form-control" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reset to Default List <span class="caret"></span></button>
+                                                        <ul class="dropdown-menu" id="language-list2"></ul>
+                                                </div>
 					</div>
 				</div>
 			</div>
 		</div>
+                <div>
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6">
+
+                    </div>
+                </div>
 	</div>
 </body>
 </html>
