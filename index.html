@@ -118,5 +118,27 @@ body {
                     </div>
                 </div>
 	</div>
+
+    <div id="welcome-dialog" class="modal fade" data-keyboard="false" data-backdrop="static">
+	    <div class="modal-dialog modal-query">
+	        <div class="modal-content">
+		    <div class="modal-header">
+		        <h4 class="modal-title">Welcome</h4>
+		            </div>
+		            <div class="modal-body">
+		                <div class="loader"></div>
+		                <p>As this is the first time this page is loaded, you need to select
+                                  a language for which the word list is loaded. The selected word list
+                                  will be stored in the local storage of you web-browser and loaded
+                                  automatically the next time you visit this page.</p> 
+                                <div class="input-group" id="language-dialog-options">
+
+                                </div>
+		            </div>
+	           	<div class="modal-footer"></div>
+                </div>
+	    </div>
+    </div>
+    <button style="visibility: hidden;" data-toggle="modal" data-target="#welcome-dialog" id="launch-welcome"  />
 </body>
 </html>

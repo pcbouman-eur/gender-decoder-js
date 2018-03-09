@@ -13,6 +13,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 // Initialize the webpage
 function init() {
+   injectLanguagesDialog();
+   injectLanguages('language-list1');
+   injectLanguages('language-list2');
+
    var ls = window.localStorage;
    if (ls.getItem('feminine_words') != null)
    {
@@ -21,17 +25,28 @@ function init() {
    }
    else
    {
-      var lang = getDefaultLanguage();
-      var url = new URL(window.location);
-      if (url.searchParams.has('lang'))
-      {
-         lang = url.searchParams.get('lang');
-      }
-      reset(lang);
+      var btn = document.getElementById('launch-welcome');
+      btn.click();
    }
 
-   injectLanguages('language-list1');
-   injectLanguages('language-list2');
+
+}
+
+function injectLanguagesDialog()
+{
+   var dialog = document.getElementById('language-dialog-options');
+   for (var language in getWordLists())
+   {
+      var btn = document.createElement('button');
+      btn.dataset['dismiss'] = 'modal';
+      btn.classList.add('form-control');
+      btn.classList.add('btn');
+      btn.classList.add('btn-primary');
+      btn.type = 'button';
+      btn.onclick = function() {reset(language); };
+      btn.appendChild(document.createTextNode('Load '+language));
+      dialog.appendChild(btn);
+   }
 }
 
 function injectLanguages(elemID)
