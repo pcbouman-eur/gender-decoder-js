@@ -42,9 +42,10 @@ function injectLanguagesDialog()
       btn.classList.add('form-control');
       btn.classList.add('btn');
       btn.classList.add('btn-primary');
+      btn.classList.add('btn-block');
       btn.type = 'button';
       btn.onclick = function() {reset(language); };
-      btn.appendChild(document.createTextNode('Load '+language));
+      btn.appendChild(document.createTextNode('Load '+capitalize(language)+' word list'));
       dialog.appendChild(btn);
    }
 }
@@ -54,12 +55,13 @@ function injectLanguages(elemID)
    var lst = document.getElementById(elemID);
    for (var language in getWordLists())
    {
-      var textnode = document.createTextNode("Load default "+language+" word list");
+      var textnode = document.createTextNode("Load default "+capitalize(language)+" word list");
       var anchor = document.createElement("a");
       anchor.href = "#";
       anchor.appendChild(textnode);
       var elem = document.createElement("li");
-      elem.onclick = function() { clickReset(language); };
+      let lng = language;
+      elem.onclick = function(){ clickReset(lng); };
       elem.appendChild(anchor);
       lst.appendChild(elem);
    }
@@ -70,6 +72,13 @@ function clickReset(lang) {
    {
       reset(lang);
    }
+}
+
+function capitalize(str) {
+   if (str.length < 1) {
+       return str;
+   }
+   return str.substring(0,1).toUpperCase() + str.substring(1);
 }
 
 // Used to store lists in local storage so they are pesisted if the user closes the browser
@@ -98,6 +107,7 @@ function reset(lang) {
    fem_div.value = fem_val;
    var mas_div = document.getElementById('masculine_text');
    mas_div.value = mas_val;
+   storeLists();
 }
 
 function getLists() {

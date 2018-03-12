@@ -2,22 +2,25 @@
 The MIT License (MIT)
 
 Copyright (c) 2016 lovedaybrooke
+Copyright (c) 2018 Janneke van Golen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The English word list was taken from the original project by lovedaybrooke. The Dutch word list was translated by Janneke van Golen.
 */
 
 
 function getDefaultLanguage() {
-    return 'english';
+    return "english";
 }
 
 function getWordLists() {
-return { 'english' : {
-    'feminine_words' : [
+return { "english" : {
+    "feminine_words" : [
         "agree",
         "affectionate",
         "child",
@@ -68,7 +71,7 @@ return { 'english' : {
         "yield",
         "shar"],
     
-    'masculine_words' : [
+    "masculine_words" : [
         "active",
         "adventurous",
         "aggress",
@@ -120,6 +123,98 @@ return { 'english' : {
         "selfsufficien",
         "stubborn",
         "superior",
-        "unreasonab"]}
-    };
+        "unreasonab"]
+    },
+    "dutch" : {
+    "feminine_words" : [
+        "gelijk",
+        "hartelijk",
+        "vriendelijk",
+        "aanmoedig",
+        "samen",
+        "begaan",
+        "gemeenschappelijk",
+        "compassie",
+        "verbind",
+        "attent",
+        "cooperat",
+        "co-operat",
+        "afhankelijk",
+        "emoti",
+        "empath",
+        "voel",
+        "zacht",
+        "eerlijk",
+        "interperso",
+        "inter-person",
+        "aardig",
+        "verwantschap",
+        "loyaal",
+        "bescheiden",
+        "koester",
+        "aangenaam",
+        "beleefd",
+        "stil",
+        "respon",
+        "sensit",
+        "onderdanig",
+        "ondersteun",
+        "sympath",
+        "teder",
+        "samen",
+        "vertrouwen",
+        "begrijpen",
+        "warm",
+        "enthousias",
+        "inclusief"], 
+
+    "masculine_words" : [
+        "actie",
+        "advontuu",
+        "agress",
+        "ambiti",
+        "analy",
+        "beweren",
+        "athle",
+        "autono",
+        "strijd",
+        "opscheppen",
+        "uitdag",
+        "winnaar",
+        "concurr",
+        "vertrouw",
+        "moed",
+        "besluit",
+        "beslissend",
+        "verdedig",
+        "bepalen",
+        "domin",
+        "dominant",
+        "gedreven",
+        "vechten",
+        "kracht",
+        "gretig",
+        "koppig",
+        "eigenwijs",
+        "hierarch",
+        "vijandig",
+        "impulsi",
+        "onafhankel",
+        "individu",
+        "intellect",
+        "leid",
+        "logisch",
+        "objectie",
+        "opini",
+        "uitgesproke",
+        "volhard",
+        "principe",
+        "roekeloos",
+        "zelfverzekerd",
+        "zelfredz",
+        "zelfvoorz",
+        "eigenwijs",
+        "superi",
+        "onredelijk"]
+    }};
 }
